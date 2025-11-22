@@ -136,9 +136,7 @@
     setInterval(createHeart,300);
 
     // Typewriter
-    const text="✨🌸 Hari ini adalah hari spesialmu, di mana dunia seolah berhenti sejenak untuk merayakan kehadiranmu 🌸✨<br>
-Semoga tahun ini membawa kebahagiaan 😄, impian tercapai 🎯, dan lebih banyak senyum 😍. <br>
-Selamat ulang tahun! 🎉🎂💖";
+    const text="✨🌸 Hari ini adalah hari spesialmu, di mana dunia seolah berhenti sejenak untuk merayakan kehadiranmu 🌸✨. Semoga tahun ini membawa kebahagiaan 😄, impian tercapai 🎯, dan lebih banyak senyum 😍. Selamat ulang tahun! 🎉🎂💖";
     let index=0; const speed=50;
     function typeWriter(){if(index<text.length){document.getElementById('typewriter').innerHTML+=text.charAt(index);index++;setTimeout(typeWriter,speed);}}
 
