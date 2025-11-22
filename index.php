@@ -92,18 +92,18 @@
         
         <!-- Slideshow untuk 5 foto adik -->
         <div class="slideshow">
-            <img src="foto1.jpg" alt="Foto Adik 1" class="slide active">
-            <img src="foto2.jpg" alt="Foto Adik 2" class="slide">
-            <img src="foto3.jpg" alt="Foto Adik 3" class="slide">
-            <img src="foto4.jpg" alt="Foto Adik 4" class="slide">
-            <img src="foto5.jpg" alt="Foto Adik 5" class="slide">
+            <img src="images/zila1.jpg" alt="zila1" class="slide active">
+            <img src="images/zila1.jpg" alt="zila2" class="slide">
+            <img src="images/zila1.jpg" alt="zila3" class="slide">
+            <img src="images/zila1.jpg" alt="zila4" class="slide">
+            <img src="images/zila1.jpg" alt="zila5" class="slide">
         </div>
         
         <p id="typewriter"></p>
     </div>
 
     <!-- Musik Otomatis (Embed YouTube untuk musik ulang tahun gratis) -->
-    <iframe width="0" height="0" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&loop=1&playlist=dQw4w9WgXcQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="display:none;"></iframe>
+    <iframe width="0" height="0" src="https://www.youtube.com/embed/HDRsMqNhMLc?autoplay=1&mute=1&loop=1&playlist=HDRsMqNhMLc" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="display:none;"></iframe>
 
     <script>
         // Script untuk animasi hati jatuh
