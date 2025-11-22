@@ -5,95 +5,92 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Selamat Ulang Tahun, Tanzila Khairunisa!</title>
 <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Arial',sans-serif; color:#fff; overflow-x:hidden; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Arial',sans-serif; color:#fff; overflow-x:hidden; background:#000; }
 
-    /* Background full screen + overlay */
-    .background {
-        position: fixed; top:0; left:0; width:100%; height:100%;
-        background:url('images/taman.jpg') no-repeat center center/cover; z-index:-3;
-    }
-    .overlay {
-        position: fixed; top:0; left:0; width:100%; height:100%;
-        background:rgba(0,0,0,0.5); z-index:-2;
-    }
+.background {
+    position: fixed; top:0; left:0; width:100%; height:100%;
+    background:url('images/taman.jpg') no-repeat center center/cover;
+    z-index:-2;
+}
+.overlay {
+    position: fixed; top:0; left:0; width:100%; height:100%;
+    background:rgba(0,0,0,0.2); /* lebih tipis supaya background terlihat */
+    z-index:-1;
+}
 
-    /* Container utama */
-    .container {
-        max-width:900px;
-        margin:50px auto;
-        padding:30px;
-        background:rgba(0,0,0,0.3);
-        border-radius:15px;
-        text-align:center;
-        position: relative;
-        z-index:2;
-    }
-    h1 { font-size:3em; margin-bottom:20px; animation:fadeIn 2s ease-in-out; }
+.container {
+    max-width:900px;
+    margin:50px auto;
+    padding:30px;
+    background:rgba(0,0,0,0.3);
+    border-radius:15px;
+    text-align:center;
+    position: relative;
+    z-index:2;
+}
+h1 { font-size:3em; margin-bottom:20px; animation:fadeIn 2s ease-in-out; }
 
-    /* Slideshow center */
-    .slideshow {
-        position: relative;
-        width: 100%;
-        max-width:600px;
-        height:400px;
-        margin:30px auto;
-        border-radius:15px;
-        overflow:hidden;
-        box-shadow:0 0 15px rgba(0,0,0,0.5);
-        display:flex;
-        justify-content:center;
-        align-items:center;
-    }
-    .slide {
-        position:absolute;
-        width:100%;
-        height:100%;
-        object-fit:cover;
-        opacity:0;
-        transition:opacity 1s ease-in-out;
-    }
-    .slide.active { opacity:1; }
+.slideshow {
+    position: relative;
+    width: 100%;
+    max-width:600px;
+    height:400px;
+    margin:30px auto;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 0 15px rgba(0,0,0,0.5);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.slide {
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    opacity:0;
+    transition:opacity 1s ease-in-out;
+}
+.slide.active { opacity:1; }
 
-    /* Typewriter */
-    #typewriter {
-        font-size:1.4em; margin-top:20px;
-        border-right:2px solid #fff;
-        white-space:normal;
-        overflow:visible;
-        animation:blink-caret 1s step-end infinite;
-        line-height:1.6;
-    }
+#typewriter {
+    font-size:1.4em;
+    margin-top:20px;
+    border-right:2px solid #fff;
+    white-space:normal;
+    overflow:visible;
+    animation:blink-caret 1s step-end infinite;
+    line-height:1.6;
+}
 
-    /* Hati jatuh */
-    .hearts { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:1; }
-    .heart { position:absolute; color:#ff6b9d; font-size:2em; animation:fall 5s linear infinite; }
+.hearts { position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:1; }
+.heart { position:absolute; color:#ff6b9d; font-size:2em; animation:fall 5s linear infinite; }
 
-    /* Musik kontrol */
-    .music-control { margin-top:20px; display:flex; justify-content:center; align-items:center; gap:10px; flex-wrap:wrap; }
-    button { padding:8px 15px; border:none; border-radius:5px; cursor:pointer; background:#ff6b9d; color:#fff; font-size:1em; }
-    input[type=range] { cursor:pointer; }
+.music-control { margin-top:20px; }
 
-    /* Kembang api canvas */
-    #fireworksCanvas {
-        position: fixed;
-        top:0; left:0;
-        width:100%; height:100%;
-        pointer-events:none;
-        z-index:0; /* di belakang container tapi di atas background */
-    }
+canvas#fireworksCanvas {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+    z-index:1;
+}
 
-    /* Animasi */
-    @keyframes fadeIn { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
-    @keyframes fall { from {transform:translateY(-100vh);} to {transform:translateY(100vh);} }
-    @keyframes blink-caret { from,to{border-color:transparent;} 50%{border-color:#fff;} }
+button { padding:8px 15px; border:none; border-radius:5px; cursor:pointer; background:#ff6b9d; color:#fff; font-size:1em; margin:2px;}
+input[type=range] { cursor:pointer; }
 
-    /* Responsive */
-    @media(max-width:768px){
-        .slideshow{height:250px;}
-        h1{font-size:2em;}
-        #typewriter{font-size:1.1em;}
-    }
+@keyframes fadeIn { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+@keyframes fall { from {transform:translateY(-100vh);} to {transform:translateY(100vh);} }
+@keyframes blink-caret { from,to{border-color:transparent;} 50%{border-color:#fff;} }
+
+@media(max-width:768px){
+    .slideshow{height:250px;}
+    h1{font-size:2em;}
+    #typewriter{font-size:1.1em;}
+}
 </style>
 </head>
 <body>
@@ -102,10 +99,13 @@
 <div class="background"></div>
 <div class="overlay"></div>
 
-<!-- Hearts -->
+<!-- Hearts jatuh -->
 <div class="hearts" id="hearts"></div>
 
-<!-- Container -->
+<!-- Canvas kembang api -->
+<canvas id="fireworksCanvas"></canvas>
+
+<!-- Kontainer utama -->
 <div class="container">
     <h1 id="title"></h1>
 
@@ -122,7 +122,7 @@
     <!-- Typewriter -->
     <p id="typewriter"></p>
 
-    <!-- Musik kontrol -->
+    <!-- Musik -->
     <div class="music-control">
         <audio id="music" autoplay loop>
             <source src="music/lagu.mp3" type="audio/mpeg">
@@ -131,17 +131,13 @@
         <div>
             <button onclick="playMusic()">▶️ Play</button>
             <button onclick="pauseMusic()">⏸️ Pause</button>
-            <label>Volume:</label>
             <input type="range" id="volume" min="0" max="1" step="0.01" value="0.5" onchange="setVolume(this.value)">
         </div>
     </div>
 </div>
 
-<!-- Kembang api canvas -->
-<canvas id="fireworksCanvas"></canvas>
-
 <script>
-/* ========== HATI JATUH ========== */
+/* ====== Hati jatuh ====== */
 function createHeart(){
     const heart=document.createElement('div');
     heart.className='heart';
@@ -153,18 +149,17 @@ function createHeart(){
 }
 setInterval(createHeart,300);
 
-/* ========== TYPEWRITER ========== */
+/* ====== Typewriter ====== */
 const titles = ["🎉🥳 Selamat Ulang Tahun, Tanzila Khairunisa! 🎂💖"];
 const texts = [
-    "Abang bingung mau bilang apa 😅, abang cuma bisa doain 💖✨\nWish u all the best for u 🎉🌟💐",
-    "Hari ini adalah hari spesialmu ✨🌸, di mana dunia seolah berhenti sejenak 🌸✨. Semoga tahun ini membawa kebahagiaan 😄, impian tercapai 🎯, dan lebih banyak senyum 😍. Selamat ulang tahun bocil! 🎉🎂💖"
+    "Abang bingung mau bilang apa 😅, abang cuma bisa doain 💖✨<br>Wish u all the best for u 🎉🌟💐",
+    "Hari ini adalah hari spesialmu ✨🌸 , di mana dunia seolah berhenti sejenak untuk merayakan kehadiranmu 🌸✨. Semoga tahun ini membawa kebahagiaan 😄, impian tercapai 🎯, dan lebih banyak senyum 😍. Selamat ulang tahun bocil! 🎉🎂💖"
 ];
 
-let titleChar = 0;
-let textIndex = 0;
-let charIndex = 0;
+let titleChar = 0, textIndex = 0, charIndex = 0;
 const speed = 50;
 
+// Typewriter untuk h1
 function typeTitle() {
     const h1 = document.getElementById('title');
     if(titleChar < titles[0].length){
@@ -176,112 +171,86 @@ function typeTitle() {
     }
 }
 
+// Typewriter untuk p
 function typeWriter() {
     const p = document.getElementById('typewriter');
     if(charIndex < texts[textIndex].length){
-        if(texts[textIndex].charAt(charIndex)==="\n"){
-            p.innerHTML += "<br>";
-        } else {
-            p.innerHTML += texts[textIndex].charAt(charIndex);
-        }
+        p.innerHTML += texts[textIndex].charAt(charIndex);
         charIndex++;
         setTimeout(typeWriter, speed);
     } else {
-        setTimeout(()=>{
+        // setelah teks selesai, hapus dan ganti teks berikutnya
+        setTimeout(() => {
             p.innerHTML = "";
-            textIndex = (textIndex+1)%texts.length;
+            textIndex = (textIndex + 1) % texts.length;
             charIndex = 0;
-            setTimeout(typeWriter,500);
-        },2000);
+            setTimeout(typeWriter, 500);
+        }, 3000);
     }
 }
 
-/* ========== SLIDESHOW ========== */
+/* ====== Slideshow ====== */
 let currentSlide=0;
 const slides=document.querySelectorAll('.slide');
 const totalSlides=slides.length;
-function showSlide(index){
-    slides.forEach(s=>s.classList.remove('active'));
-    slides[index].classList.add('active');
-}
-function nextSlide(){
-    currentSlide=(currentSlide+1)%totalSlides;
-    showSlide(currentSlide);
-}
+function showSlide(index){slides.forEach(s=>s.classList.remove('active')); slides[index].classList.add('active');}
+function nextSlide(){currentSlide=(currentSlide+1)%totalSlides; showSlide(currentSlide);}
 setInterval(nextSlide,3000);
 
-/* ========== MUSIK ========== */
+/* ====== Musik ====== */
 const music=document.getElementById('music');
 music.volume=0.5;
 function playMusic(){music.play();}
 function pauseMusic(){music.pause();}
 function setVolume(val){music.volume=val;}
 
-/* ========== MULAI TYPEWRITER ========== */
-window.onload=function(){setTimeout(typeTitle,1500);}
+/* ====== Fireworks ====== */
+const canvas=document.getElementById('fireworksCanvas');
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+const ctx=canvas.getContext('2d');
 
-/* ========== KEMBANG API ========== */
-const canvas = document.getElementById('fireworksCanvas');
-const ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-class Particle {
-    constructor(x, y, color, dx, dy){
-        this.x=x; this.y=y; this.color=color; this.dx=dx; this.dy=dy;
-        this.alpha=1; this.size=Math.random()*3+2;
+class Particle{
+    constructor(x,y,color){
+        this.x=x; this.y=y; this.color=color;
+        this.alpha=1; this.size=Math.random()*3+1;
+        this.vx=(Math.random()-0.5)*6;
+        this.vy=(Math.random()-1.5)*6;
     }
-    update(){
-        this.x+=this.dx;
-        this.y+=this.dy;
-        this.alpha-=0.01;
-    }
+    update(){ this.x+=this.vx; this.y+=this.vy; this.alpha-=0.02; }
     draw(){
-        ctx.globalAlpha=this.alpha;
-        ctx.fillStyle=this.color;
-        ctx.beginPath();
-        ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-        ctx.fill();
+        ctx.fillStyle=this.color; ctx.globalAlpha=this.alpha;
+        ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill();
         ctx.globalAlpha=1;
     }
 }
 
 let particles=[];
-
 function createFirework(){
-    const x = Math.random()*canvas.width;
-    const y = Math.random()*canvas.height/2;
-    const colors = ['#ff4c4c','#ffec4c','#4cff4c','#4cffff','#4c4cff','#ff4cff'];
-    const count = 30 + Math.random()*30;
-    for(let i=0;i<count;i++){
-        const angle = Math.random()*Math.PI*2;
-        const speed = Math.random()*5 + 2;
-        const dx = Math.cos(angle)*speed;
-        const dy = Math.sin(angle)*speed;
-        const color = colors[Math.floor(Math.random()*colors.length)];
-        particles.push(new Particle(x,y,color,dx,dy));
+    const x=Math.random()*canvas.width;
+    const y=Math.random()*canvas.height/2;
+    const colors=['#ff0','#f0f','#0ff','#fff','#ff6600'];
+    for(let i=0;i<50;i++){
+        particles.push(new Particle(x,y,colors[Math.floor(Math.random()*colors.length)]));
     }
 }
 
 function animateFireworks(){
     requestAnimationFrame(animateFireworks);
-    ctx.fillStyle='rgba(0,0,0,0.2)';
-    ctx.fillRect(0,0,canvas.width,canvas.height);
+    // Tidak menutupi background
+    ctx.clearRect(0,0,canvas.width,canvas.height);
     particles.forEach((p,i)=>{
-        p.update();
-        p.draw();
+        p.update(); p.draw();
         if(p.alpha<=0) particles.splice(i,1);
     });
 }
 
-setInterval(createFirework,1500);
+setInterval(createFirework,800);
 animateFireworks();
 
-window.addEventListener('resize',()=>{
-    canvas.width=window.innerWidth;
-    canvas.height=window.innerHeight;
-});
-</script>
+/* ====== Mulai Typewriter ====== */
+window.onload=function(){ setTimeout(typeTitle, 1000); }
 
+</script>
 </body>
 </html>
